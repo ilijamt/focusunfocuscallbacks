@@ -41,12 +41,25 @@
      * 
      * @returns {@exp;fuf@pro;prototype@pro;_singletonInstance}
      */
-    function fuf() {
+    function fuf(opts) {
 
         if (fuf.prototype._singletonInstance)
             return fuf.prototype._singletonInstance;
 
         fuf.prototype._singletonInstance = this;
+
+        /**
+         * Options
+         * 
+         * @type @exp;$@call;extend
+         */
+        this.options = $.extend({
+            'events': {
+                'focus': 'focus',
+                'unfocus': 'blur'
+            }
+        },
+        opts);
 
         /**
          * A list of callbacks to be executed upon focus 
@@ -208,8 +221,26 @@
 
         };
 
+        /**
+         * Bind the focus/unfocus events
+         * 
+         * @returns {undefined}
+         */
+        this.bindEvents = function() {
+
+            var self = this;
+            $(window).on(this.options.events.focus, function() {
+                self.gotFocus();
+            });
+            $(window).on(this.options.events.unfocus, function() {
+                self.lostFocus();
+            });
+
+        };
+
     }
 
     window.fuf = new fuf();
+    window.fuf.bindEvents();
 
 })(jQuery, window, document);
