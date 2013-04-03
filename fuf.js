@@ -93,7 +93,7 @@
             }
 
             var keys = Object.keys(target).sort();
-            var newKey = new Date.getTime();
+            var newKey = new Date().getTime();
 
             if ((keys.length === 0) || (keys.indexOf(newKey) === -1)) {
                 // it's empty no properties inside, or the key is not defined there
