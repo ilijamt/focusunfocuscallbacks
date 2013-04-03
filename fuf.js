@@ -39,6 +39,8 @@
     /**
      * Focus/Unfocus 
      * 
+     * @param {Object} opts The options for the function
+     * 
      * @returns {@exp;fuf@pro;prototype@pro;_singletonInstance}
      */
     function fuf(opts) {
