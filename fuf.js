@@ -10,7 +10,7 @@
  *   http://www.opensource.org/licenses/mit-license.php
  *
  * Project home:
- *   https://github.com/ilijamt/flyoutpopup
+ *   https://github.com/ilijamt/focusunfocuscallbacks
  *
  * Version:  0.1.0
  *
