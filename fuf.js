@@ -102,11 +102,11 @@
             
             if ((keys.length === 0) || (keys.indexOf(newKey) === -1)) {
                 // it's empty no properties inside, or the key is not defined there
-                console.log("generateKey", target, keys, newKey);
+                // console.log("generateKey", target, keys, newKey);
                 return newKey;
             }
             
-            console.log("generateKey", target, keys, newKey + 1);
+            // console.log("generateKey", target, keys, newKey + 1);
             
             // they are sorted, get the last one and increase it by 1
             return newKey + 1;
