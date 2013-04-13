@@ -12,7 +12,7 @@
  * Project home:
  *   https://github.com/ilijamt/focusunfocuscallbacks
  *
- * Version:  0.1.0
+ * Version:  0.2.1
  *
  * Features:
  *      Can add multiple callbacks on the focus of page event
@@ -119,7 +119,7 @@
             this.focusState = 1; // we got the focus
             // call all the focus callbacks
             $.each(this.definitions.focus, function(key, callback) {
-                callback();
+                setTimeout(callback);
             });
         };
 
@@ -136,7 +136,7 @@
             this.focusState = 0; // we lost the focus
             // call all the unfocus callbacks
             $.each(this.definitions.unfocus, function(key, callback) {
-                callback();
+                setTimeout(callback);
             });
         };
 
