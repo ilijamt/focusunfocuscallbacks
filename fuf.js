@@ -69,6 +69,10 @@
          * @type {Object}
          */
         this.definitions = {
+            'counters': {
+                'focus': 1000,
+                'unfocus': 1000
+            },
             'focus': {
             },
             'unfocus': {
@@ -89,27 +93,16 @@
          * 
          * @returns {Boolean|String}
          */
-        var generateKey = function(target) {
-            
-            //console.log("generateKey", target);
-            
-            if (typeof target === "undefined" || target === null) {
+        this.generateKey = function(target) {
+
+            if (typeof target === "undefined" || target === null || typeof this.definitions.counters[target] === "undefined") {
                 return false;
             }
-
-            var keys = Object.keys(target).sort();
-            var newKey = new Date().getTime();
             
-            if ((keys.length === 0) || (keys.indexOf(newKey) === -1)) {
-                // it's empty no properties inside, or the key is not defined there
-                // console.log("generateKey", target, keys, newKey);
-                return newKey;
-            }
+            this.definitions.counters[target]++;
             
-            // console.log("generateKey", target, keys, newKey + 1);
-            
-            // they are sorted, get the last one and increase it by 1
-            return newKey + 1;
+            return this.definitions.counters[target];
+               
         };
 
         /**
@@ -193,8 +186,8 @@
                 return false;
             }
 
-            var key = generateKey(this.definitions.focus);
-            
+            var key = this.generateKey('focus');
+
             // console.log("addFocusCallback", callback, key);
 
             if (key === false) {
@@ -219,8 +212,8 @@
                 return false;
             }
 
-            var key = generateKey(this.definitions.unfocus);
-            
+            var key = this.generateKey('unfocus');
+
             // console.log("addUnFocusCallback", callback, key);
 
             if (key === false) {
