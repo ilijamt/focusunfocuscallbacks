@@ -188,8 +188,6 @@
 
             var key = this.generateKey('focus');
 
-            // console.log("addFocusCallback", callback, key);
-
             if (key === false) {
                 return false;
             }
@@ -213,8 +211,6 @@
             }
 
             var key = this.generateKey('unfocus');
-
-            // console.log("addUnFocusCallback", callback, key);
 
             if (key === false) {
                 return false;
