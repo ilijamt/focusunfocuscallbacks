@@ -12,7 +12,7 @@
  * Project home:
  *   https://github.com/ilijamt/focusunfocuscallbacks
  *
- * Version:  0.2.1
+ * Version:  0.2.2
  *
  * Features:
  *      Can add multiple callbacks on the focus of page event
@@ -98,11 +98,11 @@
             if (typeof target === "undefined" || target === null || typeof this.definitions.counters[target] === "undefined") {
                 return false;
             }
-            
+
             this.definitions.counters[target]++;
-            
+
             return this.definitions.counters[target];
-               
+
         };
 
         /**
@@ -172,6 +172,16 @@
 
             return true;
 
+        };
+
+        /**
+         * Remove all the handlers
+         * 
+         * @returns void
+         */
+        this.removeAll = function() {
+            this.definitions.unfocus = {};
+            this.definitions.focus = {};
         };
 
         /**
